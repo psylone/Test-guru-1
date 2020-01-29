@@ -15,7 +15,7 @@ class Test < ApplicationRecord
   scope :hard, -> { level(5..Float::INFINITY) }
 
   def self.names_by_category(category)
-    Test.joins('JOIN categories ON tests.category_id = categories.id')
+    Test.joins(:category)
     .where(categories: {title: category})
     .order(title: :desc)
     .pluck(:title)
