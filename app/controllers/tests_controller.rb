@@ -1,23 +1,51 @@
 class TestsController < ApplicationController
 
-rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_not_found
+  def index
+    @tests = Test.all
+   end
 
-def index
-  tests = Test.all
-  titles = []
-  tests.each { |test| titles.push(test.title)}
-  render plain: titles.join("\n")
+  def show
+    @test = Test.find(params[:id])
+    @questions = Test.find(params[:id]).questions
+  end
+
+  def edit
+    @test = Test.find(params[:id])
+  end
+
+  def update
+    @test = Test.find(params[:id])
+    if @test.update(test_params)
+      redirect_to tests_path
+    else
+      render :edit
+    end
+  end
+
+  def new
+    @test = Test.new
+  end
+
+  def create
+    @test = Test.new(test_params)
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @test = Test.find(params[:id])
+    @test.destroy
+    redirect_to tests_path
+  end
+
+  private
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
+  end
 end
 
-def show
-  render plain: Test.find(params[:id]).title
-end
 
-
-private
-
-def rescue_with_not_found
-  render plain: 'Not found, try again'
-end
-
-end
