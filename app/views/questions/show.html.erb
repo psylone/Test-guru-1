@@ -1,0 +1,7 @@
+<h1>Test: <%= @question.test.title %></h1>
+
+<p>Question: <%= @question.body %></p>
+
+<%= render @questions %>
+
+<%= link_to 'Back', test_path(@question.test) %>

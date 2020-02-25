@@ -1,7 +1,7 @@
 <h3><%= question_header %></h3>
 
-<%= render 'shared/display_errors', resource: @test  %>
 <%= form_with model: [@test, @question], local: true do |form| %>
+<%= render 'shared/display_errors', resource: @test  %>
 
 <div>
   <%= form.label :body %>
@@ -10,9 +10,9 @@
 
 <div>
   <%= form.label :test_id %>
-  <%= form.collection_select :category_id, Test.all, :id, :title, prompt: 'Choose category' %>
+  <%= form.collection_select :test_id, Test.all, :id, :title, prompt: 'Choose category' %>
 </div>
 
 <p><%= form.submit %></p>
 <% end %>
-<p><%= link_to 'Back', tests_path %></p>
+<p><%= link_to 'Back', url_for(@question.test) %></p>

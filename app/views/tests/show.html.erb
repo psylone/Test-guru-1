@@ -1,8 +1,11 @@
-<p><%= @test.title %></p>
+<p> Test <%= @test.title %></p>
 
     <p>Questions:</p>
+
     <table>
+
       <%= render @questions %>
     </table>
+    <p><%= create_new_question_link %></p>
 
 <p><%= link_to 'Back', tests_path %></p>
