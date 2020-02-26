@@ -1,6 +1,6 @@
 module TestsHelper
   def test_header
-    if @test.title.nil?
+    if @test.title.new_record?
       'Create new test'
     else
       "Edit test"
