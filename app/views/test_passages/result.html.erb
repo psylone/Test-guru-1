@@ -1,0 +1,11 @@
+<h1>The <%= @test_passage.test.title %> Test completed </h1>
+<div>
+  
+  <% if @test_passage.success? %>
+    <mark class="success"><%= @test_passage.passed_percent %> % </mark><br>
+    Test passed!
+  <% else %>
+    <mark class="fail"><%= @test_passage.passed_percent %> %</mark><br>
+    Try again
+  <% end %>
+</div>

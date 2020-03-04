@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
@@ -10,5 +12,4 @@ class Answer < ApplicationRecord
   def validate_amount_of_answers
     errors.add(:base) if question.answers.size >= 4
   end
-
 end

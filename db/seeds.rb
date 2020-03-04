@@ -14,12 +14,12 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { category_id: categories[0].id, title: 'Ruby start', level: 2 },
-  { category_id: categories[0].id, title: 'Ruby medium', level: 3 },
-  { category_id: categories[1].id, title: 'JS stat', level: 3 },
-  { category_id: categories[1].id, title: 'JS medium', level: 4 },
-  { category_id: categories[2].id, title: 'Basic start', level: 0 },
-  { category_id: categories[2].id, title: 'Basic medim', level: 1 }
+  { category_id: categories[0].id, title: 'Ruby start', level: 2, author: users[1] },
+  { category_id: categories[0].id, title: 'Ruby medium', level: 3, author: users[1] },
+  { category_id: categories[1].id, title: 'JS stat', level: 3, author: users[1] },
+  { category_id: categories[1].id, title: 'JS medium', level: 4, author: users[1] },
+  { category_id: categories[2].id, title: 'Basic start', level: 0, author: users[1] },
+  { category_id: categories[2].id, title: 'Basic medim', level: 1, author: users[1] }
 ])
 
 questions = Question.create!([

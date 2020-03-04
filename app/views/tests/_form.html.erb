@@ -1,8 +1,5 @@
-<h3><%= test_header %></h3>
-
-
-<%= form_with model: @test, local: true do |form| %>
 <%= render 'shared/display_errors', resource: @test  %>
+<%= form_with model: @test, local: true do |form| %>
 <%= form.hidden_field :author_id, :value => "1" %>
 
 <div>
