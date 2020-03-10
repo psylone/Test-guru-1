@@ -11,14 +11,15 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    unless current_user
+    unless current_user 
       cookies[:return_to] = request.url
       redirect_to login_path, alert: 'Enter your account!'
     end
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    @current_user ||= User.find_by(email: session[:user_email]) if session[:user_id]
+    
   end
 
   def logged_in?
