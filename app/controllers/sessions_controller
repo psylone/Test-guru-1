@@ -1,0 +1,14 @@
+class SessionsController < Devise::SessionsController
+
+    # GET /resource/sign_in
+  def new
+    if current_user && current_user.sign_in_count == 1
+      unless session[:display_welcome]
+        flash.now[:notice] = "Welcome, #{current_user.name}"
+        session[:display_welcome] = true
+      end
+    end
+    super
+  end
+  
+end

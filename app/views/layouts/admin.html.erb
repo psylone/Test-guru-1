@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Panel | TestGuru</title>
+    <%= csrf_meta_tags %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   
+  </head>
+
+  <body>
+    <h1><%= link_to 'Test Guru', admin_tests_path %></h1>
+    <%= render 'admin/nav' %>
+    <%= render 'shared/flash' %>
+    <%= yield %>
+    <%= render "shared/footer" %>
+  </body>
+</html>

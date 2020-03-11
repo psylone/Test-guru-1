@@ -8,7 +8,7 @@ module TestsHelper
   end
 
   def create_new_question_link
-    link_to 'Create new question', new_test_question_path(@test, @question)
+    link_to 'Create new question', new_admin_test_question_path(@test, @question)
   end
 
 end
