@@ -25,6 +25,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
+    # NOTE: используй метод ассоциации current_user.tests.new(test_params)
     @test = Test.new(test_params)
     if @test.save
       redirect_to admin_test_path(@test)
@@ -41,6 +42,7 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def test_params
+    # NOTE: не нужно передавать `author_id`, у тебя уже есть объект `current_user`
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 

@@ -1,3 +1,4 @@
+# NOTE: этот модуль уже не нужен
 module User::Auth
 
   extend ActiveSupport::Concern
@@ -8,9 +9,9 @@ module User::Auth
   included do
     validates :email, presence: true
     validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
-    validates :password, confirmation: true    
+    validates :password, confirmation: true
   end
-  
+
   def password=(password_string)
     if password_string.nil?
       self.password_digest = nil

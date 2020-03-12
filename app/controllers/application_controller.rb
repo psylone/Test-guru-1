@@ -7,10 +7,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(user)
+    # NOTE: стоит сделать метод User#admin?
     if user.class == Admin
-      admin_tests_path 
+      admin_tests_path
     elsif user.class == User
-      root_path 
+      root_path
     end
   end
 

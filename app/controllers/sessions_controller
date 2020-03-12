@@ -1,3 +1,4 @@
+# NOTE: это видимо лишний файл
 class SessionsController < Devise::SessionsController
 
     # GET /resource/sign_in
@@ -10,5 +11,5 @@ class SessionsController < Devise::SessionsController
     end
     super
   end
-  
+
 end

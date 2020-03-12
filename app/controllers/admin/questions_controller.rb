@@ -5,7 +5,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :find_test, only: %i[new create]
   before_action :find_question, only: %i[show edit destroy update]
 
-
+  # NOTE: лишние пустые строки
 
   def show
   end
